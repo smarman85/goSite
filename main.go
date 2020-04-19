@@ -4,39 +4,54 @@ package main
 
 import (
   //"fmt"
+  "log"
   "net/http"
   "html/template"
   "github.com/gorilla/mux"
 )
 
-func staticHTML(htmlTemplate string, resp http.ResponseWriter) {
-  templ := template.Must(template.ParseFiles("tmpl/" + htmlTemplate + ".html"))
-  templ.Execute(resp, nil)
+var tpl *template.Template
 
+func init() {
+  tpl = template.Must(template.ParseGlob("tmpl/*.gohtml"))
 }
 
 func main() {
   router:= mux.NewRouter()
 
   router.PathPrefix("/static/").Handler(http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
+  router.HandleFunc("/", index)
+  router.HandleFunc("/about", about)
+  router.HandleFunc("/projects", projects)
+  router.HandleFunc("/resume", resume)
 
-  router.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-    staticHTML("index", w)
-  })
-
-  router.HandleFunc("/about", func(w http.ResponseWriter, r *http.Request) {
-    //fmt.Fprintf(w, "About me")
-    staticHTML("about", w)
-  })
-
-  router.HandleFunc("/projects", func(w http.ResponseWriter, r *http.Request){
-    staticHTML("projects", w)
-  })
-
-  router.HandleFunc("/resume", func(w http.ResponseWriter, r *http.Request){
-    staticHTML("resume", w)
-  })
-
-  //http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
   http.ListenAndServe(":8088", router)
+}
+
+func index(res http.ResponseWriter, req *http.Request) {
+  err := tpl.ExecuteTemplate(res, "index.gohtml", nil)
+  if err != nil {
+    log.Fatalln("template didn't execute: ", err)
+  }
+}
+
+func about(res http.ResponseWriter, req *http.Request) {
+  err := tpl.ExecuteTemplate(res, "about.gohtml", nil)
+  if err != nil {
+    log.Fatalln("template didn't execute: ", err)
+  }
+}
+
+func projects(res http.ResponseWriter, req *http.Request) {
+  err := tpl.ExecuteTemplate(res, "projects.gohtml", nil)
+  if err != nil {
+    log.Fatalln("template didn't execute: ", err)
+  }
+}
+
+func resume(res http.ResponseWriter, req *http.Request) {
+  err := tpl.ExecuteTemplate(res, "resume.gohtml", nil)
+  if err != nil {
+    log.Fatalln("template didn't execute: ", err)
+  }
 }
