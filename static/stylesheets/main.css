@@ -17,6 +17,7 @@ nav, footer {
   width: 90%;
   padding: 1%;
   display: flex;
+  flex-wrap: nowrap;
   justify-content: center;
 }
 
