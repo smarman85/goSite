@@ -20,6 +20,7 @@ func main() {
   router:= mux.NewRouter()
 
   router.PathPrefix("/static/").Handler(http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
+  router.PathPrefix("/images/").Handler(http.StripPrefix("/images/", http.FileServer(http.Dir("images"))))
   router.HandleFunc("/", index)
   router.HandleFunc("/about", about)
   router.HandleFunc("/projects", projects)

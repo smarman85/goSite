@@ -14,20 +14,21 @@ h1 {
 }
 
 nav, footer {
-  /*background-color: blue;*/
   width: 90%;
   padding: 1%;
-  margin: 0 5%;
-  display: table;
+  display: flex;
+  justify-content: center;
 }
 
 footer {
   width: 90%;
-  margin: 0 22%;
+}
+
+ul {
+  margin: 0 auto;
 }
 
 ul li {
   list-style-type: none;
   display: inline;
-  margin: 0 10%;
 }
