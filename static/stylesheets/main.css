@@ -1,2 +1,33 @@
-body {color: #c0392b}
-h1 {font: Times}
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  color: #c0392b;
+  width: 100%;
+  margin: 0 1%;
+}
+
+h1 {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+nav, footer {
+  /*background-color: blue;*/
+  width: 90%;
+  padding: 1%;
+  margin: 0 5%;
+  display: table;
+}
+
+footer {
+  width: 90%;
+  margin: 0 22%;
+}
+
+ul li {
+  list-style-type: none;
+  display: inline;
+  margin: 0 10%;
+}
