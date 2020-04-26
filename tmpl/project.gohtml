@@ -1,0 +1,8 @@
+{{ template "header" }}
+<h1>My Projects</h1>
+{{ if .project }}
+<p>{{ .project }}</p>
+{{ else }}
+<p>That's not something I have worked on yet</p>
+{{ end }}
+{{ template "footer" }}
