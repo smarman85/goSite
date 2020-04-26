@@ -9,4 +9,7 @@ RUN apk update && \
 
 COPY ./ /srv
 
-CMD ["/bin/sh"]
+WORKDIR /srv
+
+#CMD ["/bin/sh"]
+ENTRYPOINT ["go", "run", "main.go"]
