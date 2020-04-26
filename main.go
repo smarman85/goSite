@@ -12,6 +12,8 @@ import (
 
 var tpl *template.Template
 
+//var projects []string ("one", "two")
+
 func init() {
   tpl = template.Must(template.ParseGlob("tmpl/*.gohtml"))
 }
@@ -24,6 +26,7 @@ func main() {
   router.HandleFunc("/", index)
   router.HandleFunc("/about", about)
   router.HandleFunc("/projects", projects)
+  router.HandleFunc("/projects/{project}", project)
   router.HandleFunc("/resume", resume)
 
   http.ListenAndServe(":8088", router)
@@ -45,6 +48,15 @@ func about(res http.ResponseWriter, req *http.Request) {
 
 func projects(res http.ResponseWriter, req *http.Request) {
   err := tpl.ExecuteTemplate(res, "projects.gohtml", nil)
+  if err != nil {
+    log.Fatalln("template didn't execute: ", err)
+  }
+}
+
+func project(res http.ResponseWriter, req *http.Request) {
+  params := mux.Vars(req)
+  //id := params["project"]
+  err := tpl.ExecuteTemplate(res, "project.gohtml", params)
   if err != nil {
     log.Fatalln("template didn't execute: ", err)
   }
