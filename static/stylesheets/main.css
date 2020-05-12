@@ -416,10 +416,81 @@ article p {
 }
 
 /* line 34, /home/ubuntu/portfolio/app/assets/stylesheets/application.css.scss */
-h2 {
+h2, h1 {
   text-transform: uppercase;
   font-family: Verdana, geneva, sans-serif;
   text-align: center;
   margin-bottom: 4%;
   margin-top: 4%;
+}
+
+/* posts and content container */
+.content-block {
+  width: 95%;
+  margin: 0 auto;
+}
+
+.content-block h1 {
+  text-transform: uppercase;
+  font-family: Verdana, geneva, sans-serif;
+  text-align: left;
+  margin-bottom: 4%;
+  margin-top: 4%;
+}
+
+.content-block p {
+  margin-bottom: 4%;
+  margin-top: 4%;
+}
+
+.content-block code {
+  width: 60%;
+  background: #2D3748;
+  color: #f5fbff;
+  display: block;
+  font-family: "Roboto Mono", monospace;
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 19px;
+  border-radius: 3px;
+  border: none;
+  margin-bottom: 24px;
+  overflow: hidden;
+  overflow-y: hidden;
+  overflow-x: auto;
+}
+
+.codebar {
+  width: 100%;
+  background-color: black;
+}
+
+.stoplight li {
+  border-radius: 1em;
+  display: inline-block;
+  margin: 0.3em 0px 0px 0.3em;
+  width: 1em;
+  height: 1em;
+}
+
+code .code_content {
+  padding: 10px 10px;
+}
+
+.red {
+  background-color: #FC5B57;
+}
+
+.yellow {
+  background-color: #E5BF3C;
+}
+
+.green {
+  background-color: #52C038;
+}
+
+
+
+.content-block code .special {
+  color: #F6B9FF;
 }

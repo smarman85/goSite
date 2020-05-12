@@ -1,9 +1,10 @@
 {{ template "header" }}
-<h1>My Projects</h1>
 {{ if (eq .project "test") }}
 {{ template "test" }}
 {{ else if (eq .project "test1") }}
 {{ template "test1" }}
+{{ else if (eq .project "post1") }}
+{{ template "post1" }}
 {{ else }}
 <p>{{ .project }} isn't a project I have worked on. You have reached this page in error</p>
 {{ end }}
