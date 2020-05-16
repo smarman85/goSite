@@ -18,6 +18,7 @@
   margin: 0;
 }
 
+
 /* line 21, /home/ubuntu/portfolio/app/assets/stylesheets/application.css.scss */
 .container {
   width: 100%;
@@ -385,10 +386,6 @@ footer .social-links img {
 }
 
 /* line 19, /home/ubuntu/portfolio/app/assets/stylesheets/styles/blog.scss */
-article p {
-  margin: 20px 0;
-}
-
 /* line 23, /home/ubuntu/portfolio/app/assets/stylesheets/styles/blog.scss */
 .mark-down {
   width: 97%;
@@ -439,12 +436,12 @@ h2, h1 {
 }
 
 .content-block p {
-  margin-bottom: 4%;
-  margin-top: 4%;
+  margin: 4% 0;
+  overflow: auto;
 }
 
 .content-block code {
-  width: 60%;
+  width: 95%;
   background: #2D3748;
   color: #f5fbff;
   display: block;
@@ -477,6 +474,11 @@ code .code_content {
   padding: 10px 10px;
 }
 
+code pre {
+  font-family: monospace;
+  display: inline-flex;
+}
+
 .red {
   background-color: #FC5B57;
 }
@@ -489,6 +491,9 @@ code .code_content {
   background-color: #52C038;
 }
 
+.content-block .content {
+  width: 95%;
+}
 
 
 .content-block code .special {
