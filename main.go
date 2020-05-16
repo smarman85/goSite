@@ -47,7 +47,15 @@ func about(res http.ResponseWriter, req *http.Request) {
 }
 
 func projects(res http.ResponseWriter, req *http.Request) {
-  err := tpl.ExecuteTemplate(res, "projects.gohtml", nil)
+  projects := map[string][]string{
+    "test": []string{"test header", "quick desc"},
+    "test1": []string{"test1 header", "quick desc 1"},
+    "test2": []string{"test2 header", "quick desc 2"},
+    "test3": []string{"test3 header", "quick desc 3"},
+    "test4": []string{"test4 header", "quick desc 4"},
+    "test5": []string{"New Post", "something catchy"},
+  }
+  err := tpl.ExecuteTemplate(res, "projects.gohtml", projects)
   if err != nil {
     log.Fatalln("template didn't execute: ", err)
   }

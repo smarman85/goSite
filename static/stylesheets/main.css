@@ -438,6 +438,8 @@ h2, h1 {
 .content-block p {
   margin: 4% 0;
   overflow: auto;
+  font-family: "Roboto Mono", monospace;
+  font-size: 13px;
 }
 
 .content-block code {
@@ -495,6 +497,15 @@ code pre {
   width: 95%;
 }
 
+.projects-tile {
+  width: 30%;
+  background-color: red;
+}
+
+.projects-tile img {
+  width: 100%;
+  height: auto;
+}
 
 .content-block code .special {
   color: #F6B9FF;
