@@ -1,8 +1,9 @@
 {{ template "header" }}
 <h1>All Projects</h1>
 {{/* <h1>{{ . }}</h1>  */}}
+<div class="tile_container">
 {{ range $key, $value := . }}
-  <a href="#"></a>
+  <a href="#">
     <div class="projects-tile">
       <h1>{{ $key }}</h1>
       <img src="http://www.fillmurray.com/300/200" alt="">
@@ -11,4 +12,5 @@
     </div>
   </a>
 {{ end }}
+</div>
 {{ template "footer" }}

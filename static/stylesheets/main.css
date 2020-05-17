@@ -497,8 +497,20 @@ code pre {
   width: 95%;
 }
 
-.projects-tile {
+.tile_container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: DodgerBlue;
+}
+
+.tile_container a {
   width: 30%;
+}
+
+.projects-tile {
+  width: 100%;
+  margin: 2%;
   background-color: red;
 }
 
