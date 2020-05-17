@@ -56,3 +56,38 @@
 </body>
 </html>
 {{ end }}
+
+
+{{ define "codeblock-start" }}
+<code>
+  <div class="codebar">
+    <ul class="stoplight">
+      <li class="red"></li>
+      <li class="yellow"></li>
+      <li class="green"></li>
+    </ul>
+  </div>
+  <pre>
+    <div class="code_content">
+{{ end }}
+{{ define "codeblock-end" }}
+    </div>
+  </pre>
+</code>
+{{ end }}
+
+
+{{ define "test" }}
+<h1>Hi I am test number 0</h1>
+{{ end }}
+{{ define "test1" }}
+<h1>Hi I am test number 1</h1>
+{{ end }}
+
+{{ define "home" }}
+Welcome to my website, Good to see you!
+{{ end }}
+
+{{ define "about" }}
+Just a lonely boy, living in a lonely world.
+{{ end }}
