@@ -3,7 +3,7 @@
 {{/* <h1>{{ . }}</h1>  */}}
 <div class="tile_container">
 {{ range $key, $value := . }}
-  <a href="#">
+  <a href="/projects/{{ $key }}">
     <div class="projects-tile">
       <h1>{{ $key }}</h1>
       <img src="http://www.fillmurray.com/300/200" alt="">

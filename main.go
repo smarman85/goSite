@@ -54,6 +54,7 @@ func projects(res http.ResponseWriter, req *http.Request) {
     "test3": []string{"test3 header", "quick desc 3"},
     "test4": []string{"test4 header", "quick desc 4"},
     "test5": []string{"New Post", "something catchy"},
+    "post1": []string{"Lorem Ipsume", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."},
   }
   err := tpl.ExecuteTemplate(res, "projects.gohtml", projects)
   if err != nil {

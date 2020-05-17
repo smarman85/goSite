@@ -501,22 +501,31 @@ code pre {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  background-color: DodgerBlue;
+  justify-content: center;
 }
 
 .tile_container a {
+  text-decoration: none;
   width: 30%;
+  margin: 1%;
 }
 
 .projects-tile {
   width: 100%;
-  margin: 2%;
-  background-color: red;
+  background-color: rgba(102, 95, 96, 0.05);
+}
+
+.projects-tile h1 {
+  padding-top: 4%;
 }
 
 .projects-tile img {
   width: 100%;
   height: auto;
+}
+
+.projects-tile p {
+  padding: 2%;
 }
 
 .content-block code .special {
