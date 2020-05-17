@@ -130,7 +130,7 @@ header a {
 
 /* line 87, /home/ubuntu/portfolio/app/assets/stylesheets/styles/header.scss */
 .background-image {
-  height: auto;
+  height: 50%;
   width: 100%;
   margin-bottom: 3%;
   z-index: 1;
@@ -438,8 +438,9 @@ h2, h1 {
 .content-block p {
   margin: 4% 0;
   overflow: auto;
-  font-family: "Roboto Mono", monospace;
-  font-size: 13px;
+  font-family: Palatino,Palatino Linotype,Palatino LT STD,Book Antiqua,Georgia,serif;
+  font-size: 1.1em;
+  line-height: 1.5em;
 }
 
 .content-block code {
@@ -505,6 +506,8 @@ code pre {
 }
 
 .tile_container a {
+  font-family: Palatino,Palatino Linotype,Palatino LT STD,Book Antiqua,Georgia,serif;
+  color: #000000;
   text-decoration: none;
   width: 30%;
   margin: 1%;
