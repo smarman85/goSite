@@ -469,6 +469,10 @@ code pre {
   padding: 2%;
 }
 
-.content-block code .special {
+.content-block code .s {
   color: #F6B9FF;
+}
+
+.content-block code .c {
+  color: #aed419;
 }

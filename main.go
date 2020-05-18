@@ -28,8 +28,16 @@ func main() {
   router.HandleFunc("/projects", projects)
   router.HandleFunc("/projects/{project}", project)
   router.HandleFunc("/resume", resume)
+  router.NotFoundHandler = http.HandlerFunc(NotFound)
 
   http.ListenAndServe(":8088", router)
+}
+
+func NotFound(res http.ResponseWriter, req *http.Request) { // a * before http.Request
+  err := tpl.ExecuteTemplate(res, "404.gohtml", nil)
+  if err != nil {
+    log.Fatalln("template didn't execute: ", err)
+  }
 }
 
 func index(res http.ResponseWriter, req *http.Request) {
