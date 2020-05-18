@@ -1,35 +1,16 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any styles
- * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
- * file per style scope.
- *
-
- */
-/* line 18, /home/ubuntu/portfolio/app/assets/stylesheets/application.css.scss */
 * {
   padding: 0;
   margin: 0;
 }
 
-
-/* line 21, /home/ubuntu/portfolio/app/assets/stylesheets/application.css.scss */
 .container {
   width: 100%;
 }
 
-/* line 22, /home/ubuntu/portfolio/app/assets/stylesheets/application.css.scss */
 .clear {
   clear: both;
 }
 
-/* line 2, /home/ubuntu/portfolio/app/assets/stylesheets/styles/header.scss */
 header {
   margin: 0 auto;
   position: fixed;
@@ -38,7 +19,7 @@ header {
   background-color: rgba(102, 95, 96, 0.7);
   z-index: 9;
 }
-/* line 9, /home/ubuntu/portfolio/app/assets/stylesheets/styles/header.scss */
+
 header .background-image {
   height: auto;
   margin-bottom: 3%;
@@ -47,7 +28,7 @@ header .background-image {
   -webkit-box-shadow: 0 6px 4px 2px gray;
   box-shadow: 0 6px 4px 2px gray;
 }
-/* line 17, /home/ubuntu/portfolio/app/assets/stylesheets/styles/header.scss */
+
 header .hamburger {
   cursor: pointer;
   display: none;
@@ -56,40 +37,41 @@ header .hamburger {
   width: 57px;
   font-size: 3em;
 }
+
 @media only screen and (max-device-width: 1020px), screen and (max-width: 1020px) {
-  /* line 2, /home/ubuntu/portfolio/app/assets/stylesheets/styles/header.scss */
+
   header {
-    /* Styles */
   }
-  /* line 33, /home/ubuntu/portfolio/app/assets/stylesheets/styles/header.scss */
+
   header .hamburger {
     display: none;
   }
-  /* line 36, /home/ubuntu/portfolio/app/assets/stylesheets/styles/header.scss */
+  
   header #mobile-menu {
     display: none;
   }
 }
+
 @media only screen and (max-device-width: 720px), screen and (max-width: 720px) {
-  /* line 2, /home/ubuntu/portfolio/app/assets/stylesheets/styles/header.scss */
+  
   header {
-    /* Styles */
+ 
   }
-  /* line 41, /home/ubuntu/portfolio/app/assets/stylesheets/styles/header.scss */
+
   header .hamburger {
     display: block;
   }
-  /* line 44, /home/ubuntu/portfolio/app/assets/stylesheets/styles/header.scss */
+
   header .links {
     display: none;
   }
-  /* line 47, /home/ubuntu/portfolio/app/assets/stylesheets/styles/header.scss */
+
   header #mobile-menu {
     width: 100%;
     margin: 0;
     float: none;
   }
-  /* line 51, /home/ubuntu/portfolio/app/assets/stylesheets/styles/header.scss */
+
   header #mobile-menu li {
     height: 39px;
     margin-left: 0px;
@@ -100,25 +82,25 @@ header .hamburger {
     color: yellow;
   }
 }
-/* line 62, /home/ubuntu/portfolio/app/assets/stylesheets/styles/header.scss */
+
 header .me {
   width: 80px;
   height: auto;
   border-radius: 40px;
 }
-/* line 67, /home/ubuntu/portfolio/app/assets/stylesheets/styles/header.scss */
+
 header .links {
   margin-top: 28px;
   float: right;
   margin-right: 24px;
 }
-/* line 71, /home/ubuntu/portfolio/app/assets/stylesheets/styles/header.scss */
+
 header .links li {
   display: inline-block;
   vertical-align: middle;
   margin-left: 10px;
 }
-/* line 77, /home/ubuntu/portfolio/app/assets/stylesheets/styles/header.scss */
+
 header a {
   font-size: 1em;
   color: yellow;
@@ -128,7 +110,6 @@ header a {
   font-weight: bold;
 }
 
-/* line 87, /home/ubuntu/portfolio/app/assets/stylesheets/styles/header.scss */
 .background-image {
   height: 50%;
   width: 100%;
@@ -139,12 +120,11 @@ header a {
   box-shadow: 0 6px 4px 2px gray;
 }
 
-/* line 3, /home/ubuntu/portfolio/app/assets/stylesheets/styles/main_content.scss */
 main {
   width: 100%;
   margin: 0 auto;
 }
-/* line 6, /home/ubuntu/portfolio/app/assets/stylesheets/styles/main_content.scss */
+
 main img {
   width: 100%;
   height: auto;
@@ -155,7 +135,6 @@ main img {
   box-shadow: 0 6px 4px 2px gray;
 }
 
-/* line 17, /home/ubuntu/portfolio/app/assets/stylesheets/styles/main_content.scss */
 h2:before {
   display: block;
   content: " ";
@@ -164,17 +143,16 @@ h2:before {
   visibility: hidden;
 }
 
-/* line 24, /home/ubuntu/portfolio/app/assets/stylesheets/styles/main_content.scss */
 .projects, .blog {
   margin: 5% auto;
   width: 97%;
 }
-/* line 28, /home/ubuntu/portfolio/app/assets/stylesheets/styles/main_content.scss */
+
 .projects a, .blog a {
   color: #000000;
   text-decoration: none;
 }
-/* line 33, /home/ubuntu/portfolio/app/assets/stylesheets/styles/main_content.scss */
+
 .projects article, .blog article {
   width: 30%;
   float: left;
@@ -182,9 +160,8 @@ h2:before {
   margin-left: 2%;
 }
 @media only screen and (max-device-width: 720px), screen and (max-width: 720px) {
-  /* line 33, /home/ubuntu/portfolio/app/assets/stylesheets/styles/main_content.scss */
+
   .projects article, .blog article {
-    /* Styles */
     border-bottom: 1px solid #cccccc;
     padding: 15px 0;
     width: 100%;
@@ -193,93 +170,87 @@ h2:before {
   }
 }
 
-/* line 47, /home/ubuntu/portfolio/app/assets/stylesheets/styles/main_content.scss */
 .type-container {
   width: 25%;
   float: left;
 }
 
-/* line 51, /home/ubuntu/portfolio/app/assets/stylesheets/styles/main_content.scss */
 .type-container img {
   width: 89%;
 }
 
-/* line 54, /home/ubuntu/portfolio/app/assets/stylesheets/styles/main_content.scss */
 article .description {
   width: 70%;
   float: right;
 }
-/* line 57, /home/ubuntu/portfolio/app/assets/stylesheets/styles/main_content.scss */
+
 article .description h1 {
   font-family: Verdana, geneva, sans-serif;
   margin-bottom: 5px;
   font-size: 1em;
   width: 100%;
 }
-/* line 63, /home/ubuntu/portfolio/app/assets/stylesheets/styles/main_content.scss */
+
 article .description .date {
   font-family: arial, helvetica, sans-serif;
   margin-bottom: 5px;
   font-size: 0.8em;
   width: 100%;
 }
-/* line 69, /home/ubuntu/portfolio/app/assets/stylesheets/styles/main_content.scss */
+
 article .description .text {
   width: 100%;
 }
 
-/* line 73, /home/ubuntu/portfolio/app/assets/stylesheets/styles/main_content.scss */
 .contact_me {
   width: 100%;
   margin-top: 9%;
   background-color: #F5F4F4;
 }
-/* line 77, /home/ubuntu/portfolio/app/assets/stylesheets/styles/main_content.scss */
+
 .contact_me .form_container {
   width: 70%;
   margin: 0 auto;
 }
 @media only screen and (max-device-width: 720px), screen and (max-width: 720px) {
-  /* line 77, /home/ubuntu/portfolio/app/assets/stylesheets/styles/main_content.scss */
+
   .contact_me .form_container {
-    /* Styles */
     width: 90%;
   }
 }
-/* line 84, /home/ubuntu/portfolio/app/assets/stylesheets/styles/main_content.scss */
+
 .contact_me .form_subject {
   width: 45%;
   float: left;
 }
-/* line 88, /home/ubuntu/portfolio/app/assets/stylesheets/styles/main_content.scss */
+
 .contact_me .form_email {
   width: 45%;
   float: right;
 }
-/* line 92, /home/ubuntu/portfolio/app/assets/stylesheets/styles/main_content.scss */
+
 .contact_me #contact_text {
   width: 98.5%;
   margin: 0 auto 2%;
   height: 200px;
 }
-/* line 107, /home/ubuntu/portfolio/app/assets/stylesheets/styles/main_content.scss */
+
 .contact_me input[type="submit"] {
   width: 47%;
   float: right;
   font-size: 12px;
 }
-/* line 112, /home/ubuntu/portfolio/app/assets/stylesheets/styles/main_content.scss */
+
 .contact_me button {
   width: 47%;
   float: left;
 }
 @media only screen and (max-device-width: 720px), screen and (max-width: 720px) {
-  /* line 73, /home/ubuntu/portfolio/app/assets/stylesheets/styles/main_content.scss */
+
   .contact_me {
-    /* Styles */
     margin-top: 22%;
   }
-  /* line 118, /home/ubuntu/portfolio/app/assets/stylesheets/styles/main_content.scss */
+
   .contact_me .form_subject, .contact_me #contact_text, .contact_me .form_email, .contact_me input[type="submit"], .contact_me button {
     width: 100%;
     float: none;
@@ -287,7 +258,6 @@ article .description .text {
   }
 }
 
-/* line 2, /home/ubuntu/portfolio/app/assets/stylesheets/styles/form.scss */
 input[type="text"], input[type="email"], textarea {
   border: none;
   color: #525252;
@@ -302,14 +272,12 @@ input[type="text"], input[type="email"], textarea {
   background: #DFDFDF;
 }
 
-/* line 17, /home/ubuntu/portfolio/app/assets/stylesheets/styles/form.scss */
 textarea {
   height: 400px;
   padding: 5px 0px 0px 5px;
   width: 70%;
 }
 
-/* line 23, /home/ubuntu/portfolio/app/assets/stylesheets/styles/form.scss */
 input[type="submit"], button {
   background: #FFCC02;
   border: none;
@@ -323,56 +291,52 @@ input[type="submit"], button {
   cursor: pointer;
 }
 
-/* line 36, /home/ubuntu/portfolio/app/assets/stylesheets/styles/form.scss */
 .button:hover {
   color: #333;
   background-color: #EBEBEB;
 }
 
-/* line 2, /home/ubuntu/portfolio/app/assets/stylesheets/styles/footer.scss */
 footer {
   width: 100%;
   background-color: rgba(102, 95, 96, 0.7);
   margin-top: 5%;
   padding: 4% 0;
 }
-/* line 7, /home/ubuntu/portfolio/app/assets/stylesheets/styles/footer.scss */
+
 footer .social-links {
   width: 40%;
   margin: 0 auto;
   text-align: center;
 }
-/* line 10, /home/ubuntu/portfolio/app/assets/stylesheets/styles/footer.scss */
+
 footer .social-links a {
   display: inline-block;
   width: 19%;
   margin-right: 4%;
 }
-/* line 15, /home/ubuntu/portfolio/app/assets/stylesheets/styles/footer.scss */
+
 footer .social-links a:nth-child(3) {
   margin-right: none;
 }
-/* line 18, /home/ubuntu/portfolio/app/assets/stylesheets/styles/footer.scss */
+
 footer .social-links img {
   width: 80%;
   height: auto;
   border-radius: 18px;
 }
 @media only screen and (max-device-width: 720px), screen and (max-width: 720px) {
-  /* line 7, /home/ubuntu/portfolio/app/assets/stylesheets/styles/footer.scss */
+
   footer .social-links {
-    /* Styles */
     width: 75%;
     margin-left: 17%;
   }
 }
 
-/* line 2, /home/ubuntu/portfolio/app/assets/stylesheets/styles/blog.scss */
 .blog_content {
   width: 97%;
   margin: 5% auto;
 }
-/* line 6, /home/ubuntu/portfolio/app/assets/stylesheets/styles/blog.scss */
+
 .blog_content h2:before {
   display: block;
   content: " ";
@@ -380,39 +344,11 @@ footer .social-links img {
   height: 80px;
   visibility: hidden;
 }
-/* line 14, /home/ubuntu/portfolio/app/assets/stylesheets/styles/blog.scss */
+
 .blog_content article {
   width: 100%;
 }
 
-/* line 19, /home/ubuntu/portfolio/app/assets/stylesheets/styles/blog.scss */
-/* line 23, /home/ubuntu/portfolio/app/assets/stylesheets/styles/blog.scss */
-.mark-down {
-  width: 97%;
-  background-color: #303030;
-  margin-top: 2%;
-  margin-bottom: 2px;
-  padding: 2%;
-  overflow-x: scroll;
-}
-/* line 30, /home/ubuntu/portfolio/app/assets/stylesheets/styles/blog.scss */
-.mark-down .ruby-keyword {
-  color: #00ffff;
-}
-/* line 33, /home/ubuntu/portfolio/app/assets/stylesheets/styles/blog.scss */
-.mark-down .ruby-constant {
-  color: #7fffd4;
-}
-/* line 36, /home/ubuntu/portfolio/app/assets/stylesheets/styles/blog.scss */
-.mark-down .ruby-identifier {
-  color: #ffdead;
-}
-/* line 39, /home/ubuntu/portfolio/app/assets/stylesheets/styles/blog.scss */
-.mark-down .ruby-constant {
-  color: #7fffd4;
-}
-
-/* line 34, /home/ubuntu/portfolio/app/assets/stylesheets/application.css.scss */
 h2, h1 {
   text-transform: uppercase;
   font-family: Verdana, geneva, sans-serif;
@@ -421,7 +357,6 @@ h2, h1 {
   margin-top: 4%;
 }
 
-/* posts and content container */
 .content-block {
   width: 95%;
   margin: 0 auto;
