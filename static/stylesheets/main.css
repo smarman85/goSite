@@ -271,9 +271,6 @@ code pre {
 
 @media only screen and (max-device-width: 720px), screen and (max-width: 720px) {
 
-  header {
-
-  }
   .tile_container a {
     width: 95%;
   }
