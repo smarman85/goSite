@@ -267,16 +267,10 @@ code pre {
     text-align: center;
     color: yellow;
   }
-}
-
-@media only screen and (max-device-width: 720px), screen and (max-width: 720px) {
 
   .tile_container a {
     width: 95%;
   }
-}
-
-@media only screen and (max-device-width: 720px), screen and (max-width: 720px) {
 
   footer .social-links {
     width: 75%;
