@@ -11,5 +11,5 @@ COPY ./ /srv
 
 WORKDIR /srv
 
-CMD ["/bin/sh"]
-#ENTRYPOINT ["go", "run", "main.go"]
+#CMD ["/bin/sh"]
+ENTRYPOINT ["go", "run", "main.go"]

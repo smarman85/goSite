@@ -140,7 +140,6 @@ h2, h1 {
   font-family: "Roboto Mono", monospace;
   font-size: 13px;
   font-weight: 300;
-  line-height: 19px;
   border-radius: 3px;
   border: none;
   margin-bottom: 24px;
@@ -244,6 +243,10 @@ code pre {
 
 @media only screen and (max-device-width: 720px), screen and (max-width: 720px) {
   
+  .content-block p {
+      font-size: 150%;
+  }
+  
   header .hamburger {
     display: block;
   }
@@ -275,5 +278,9 @@ code pre {
   footer .social-links {
     width: 75%;
     margin-left: 17%;
+  }
+  
+  .content-block code {
+    font-size: 217%;
   }
 }
