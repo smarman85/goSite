@@ -30,7 +30,7 @@ func main() {
   router.HandleFunc("/resume", resume)
   router.NotFoundHandler = http.HandlerFunc(NotFound)
 
-  http.ListenAndServe(":8088", router)
+  http.ListenAndServe(":8080", router)
 }
 
 func NotFound(res http.ResponseWriter, req *http.Request) { // a * before http.Request
@@ -62,6 +62,7 @@ func projects(res http.ResponseWriter, req *http.Request) {
     "test3": []string{"test3 header", "quick desc 3"},
     "test4": []string{"test4 header", "quick desc 4"},
     "test5": []string{"New Post", "something catchy"},
+    "k8s_svc": []string{"K8s Service Accounts", "Kubernetes Service accounts and how they grant access."},
     "post1": []string{"Lorem Ipsume", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."},
   }
   err := tpl.ExecuteTemplate(res, "projects.gohtml", projects)

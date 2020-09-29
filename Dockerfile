@@ -4,7 +4,8 @@ RUN apk update && \
     apk add go \
         git \
         gcc \
-        libc-dev && \
+        libc-dev \
+        dumb-init && \
     go get -u github.com/gorilla/mux
 
 COPY ./ /srv
@@ -12,4 +13,6 @@ COPY ./ /srv
 WORKDIR /srv
 
 #CMD ["/bin/sh"]
-ENTRYPOINT ["go", "run", "main.go"]
+ENTRYPOINT ["/usr/bin/dumb-init", "--"]
+
+CMD ["go", "run", "main.go"]
