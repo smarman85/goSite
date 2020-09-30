@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gosite
+  namespace: gosite
+  labels:
+    app: gosite
+  annotations:
+    app: gosite
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gosite
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      name: gosite
+      namespace: gosite
+      labels:
+        app: gosite
+      annotations:
+        app: gosite
+    spec:
+      containers:
+      - name: gosite
+        image: smarman/gosite:0.0.4
+        imagePullPolicy: Always
+          #livenessProbe:
+        ports:
+        - containerPort: 8080
+        stdin: true
+        tty: true
+      restartPolicy: Always
+status:

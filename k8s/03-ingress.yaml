@@ -1,0 +1,14 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: gosite-ing
+  namespace: gosite
+spec:
+  rules:
+  - host: gosite.local.seanhome.xyz
+    http:
+      paths:
+      - backend: 
+          serviceName: gosite-svc
+          servicePort: http
+        path: /
