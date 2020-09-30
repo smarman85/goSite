@@ -50,7 +50,8 @@ func index(res http.ResponseWriter, req *http.Request) {
 func about(res http.ResponseWriter, req *http.Request) {
   err := tpl.ExecuteTemplate(res, "about.gohtml", nil)
   if err != nil {
-    log.Fatalln("template didn't execute: ", err)
+    log.Println("template didn't execute: ", err)
+    NotFound(res, req)
   }
 }
 
@@ -67,22 +68,26 @@ func projects(res http.ResponseWriter, req *http.Request) {
   }
   err := tpl.ExecuteTemplate(res, "projects.gohtml", projects)
   if err != nil {
-    log.Fatalln("template didn't execute: ", err)
+    log.Println("template didn't execute: ", err)
+    NotFound(res, req)
   }
 }
 
 func project(res http.ResponseWriter, req *http.Request) {
   params := mux.Vars(req)
   //id := params["project"]
-  err := tpl.ExecuteTemplate(res, "project.gohtml", params)
+  err := tpl.ExecuteTemplate(res, params["project"] + ".gohtml", nil)
   if err != nil {
-    log.Fatalln("template didn't execute: ", err)
+    log.Println("template didn't execute: ", err)
+    NotFound(res, req)
+    //tpl.ExecuteTemplate(res, "404.gohtml", nil)
   }
 }
 
 func resume(res http.ResponseWriter, req *http.Request) {
   err := tpl.ExecuteTemplate(res, "resume.gohtml", nil)
   if err != nil {
-    log.Fatalln("template didn't execute: ", err)
+    log.Println("template didn't execute: ", err)
+    NotFound(res, req)
   }
 }
