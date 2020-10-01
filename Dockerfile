@@ -1,18 +1,26 @@
 FROM smarman/alpine-base
 
+ENV GOVERSION 1.13.3
+ENV GOAPP goSite
+
 RUN apk update && \
-    apk add go \
+    apk add --no-cache \
         git \
         gcc \
         libc-dev \
         dumb-init && \
-    go get -u github.com/gorilla/mux
+    wget -O go.tgz https://dl.google.com/go/go${GOVERSION}.linux-amd64.tar.gz && \
+    tar -C /usr/local -xzf go.tgz
 
-COPY ./ /srv
+ENV GOPATH /go
 
-WORKDIR /srv
+RUN mkdir /lib64 && ln -s /lib/libc.musl-x86_64.so.1 /lib64/ld-linux-x86-64.so.2 && \
+    mkdir -p ${GOPATH}/src ${GOPATH}/bin
 
-#CMD ["/bin/sh"]
+COPY ./ ${GOPATH}/src/${GOAPP}
+
+WORKDIR ${GOPATH}/src/${GOAPP}
+
 ENTRYPOINT ["/usr/bin/dumb-init", "--"]
 
-CMD ["go", "run", "main.go"]
+CMD ["/usr/local/go/bin/go", "run", "main.go"]
