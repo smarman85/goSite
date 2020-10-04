@@ -27,12 +27,14 @@ ENTRYPOINT ["/usr/bin/dumb-init", "--", "./goSite"]
 
 
 
-### Final image: (WORK IN PROGRESS - copy-from builder copies files but they aren't found)
+##### Final image: (WORK IN PROGRESS - copy-from builder copies files but they aren't found)
 ##FROM smarman/alpine-base
-##COPY --from=builder /usr/bin/dumb-init /usr/bin/dumb-init
-##COPY --from=builder /go/src/goSite /app/
+##RUN apk add --no-cache dumb-init
+###COPY --from=builder /usr/bin/dumb-init /usr/bin/dumb-init
+##COPY --from=builder /go/src/goSite/ /app/goSite/
+##COPY --from=builder /go/src/goSite/ /app/goSite/
 ##RUN echo "Final" && pwd && ls -al 
-##RUN ls -al | grep goSite || echo "MISSING"
+##RUN ls -al /app/goSite | grep goSite || echo "MISSING" && pwd
 ##ENTRYPOINT ["/usr/bin/dumb-init", "--", "/app/goSite/goSite"]
 
 #CMD ["/usr/local/go/bin/go", "run", "main.go"]
