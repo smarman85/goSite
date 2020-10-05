@@ -28,9 +28,14 @@ spec:
     spec:
       containers:
       - name: gosite
-        image: smarman/gosite:0.0.4
+        image: smarman/gosite:r0.0.0
         imagePullPolicy: Always
           #livenessProbe:
+          #  httpGet:
+          #    path: /about
+          #    port: 8080
+          #  initialDelaySeconds: 5
+          #  periodSeconds: 60
         ports:
         - containerPort: 8080
         stdin: true
