@@ -28,7 +28,7 @@ spec:
     spec:
       containers:
       - name: gosite
-        image: smarman/gosite:r0.0.0
+        image: smarman/gosite:0.0.6
         imagePullPolicy: Always
           #livenessProbe:
           #  httpGet:
