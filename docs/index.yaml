@@ -1,0 +1,13 @@
+apiVersion: v1
+entries:
+  gosite:
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: 2020-10-29T16:55:50.391097-07:00
+    description: gosite chart
+    digest: cf32d4827df02b0699102ae3c2ac94144d609d779bfc800307f6c54c9e495e11
+    name: gosite
+    urls:
+    - https://smarman85.github.io/goSite/gosite-1.0.0.tgz
+    version: 1.0.0
+generated: 2020-10-29T16:55:50.390742-07:00

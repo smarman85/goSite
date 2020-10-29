@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: gosite-svc
+  namespace: gosite
+  labels:
+    app: gosite
+spec:
+  ports:
+  - name: http
+    port: 8080
+    nodePort: 30080
+  selector:
+    app: gosite
+  type: NodePort
