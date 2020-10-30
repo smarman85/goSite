@@ -1,1 +1,2 @@
 name: gosite
+replicas: 1
