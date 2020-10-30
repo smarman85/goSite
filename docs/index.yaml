@@ -1,9 +1,18 @@
 apiVersion: v1
 entries:
   gosite:
+  - apiVersion: v2
+    appVersion: "1.0"
+    created: "2020-10-29T21:24:33.720911-07:00"
+    description: gosite chart
+    digest: a2968a299c9dad5fe40f79cd1d9a6f5f936e9c360ffd900528cf367894b3f507
+    name: gosite
+    urls:
+    - https://smarman85.github.io/goSite/gosite-1.0.2.tgz
+    version: 1.0.2
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2020-10-29T18:37:09.545328-07:00
+    created: "2020-10-29T21:24:33.719344-07:00"
     description: gosite chart
     digest: 7a0c9de8b3281c14da1a20b928b65e0ff0702bb35b4c2b1c5019cb60a6ef981c
     name: gosite
@@ -12,11 +21,11 @@ entries:
     version: 1.0.1
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2020-10-29T18:37:09.544824-07:00
+    created: "2020-10-29T21:24:33.718915-07:00"
     description: gosite chart
     digest: cf32d4827df02b0699102ae3c2ac94144d609d779bfc800307f6c54c9e495e11
     name: gosite
     urls:
     - https://smarman85.github.io/goSite/gosite-1.0.0.tgz
     version: 1.0.0
-generated: 2020-10-29T18:37:09.5438-07:00
+generated: "2020-10-29T21:24:33.71827-07:00"
