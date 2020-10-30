@@ -2,7 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: gosite
-  namespace: gosite
   labels:
     app: gosite
   annotations:
@@ -20,7 +19,6 @@ spec:
   template:
     metadata:
       name: gosite
-      namespace: gosite
       labels:
         app: gosite
       annotations:
