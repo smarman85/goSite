@@ -1,14 +1,14 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: gosite-svc
+  name: {{ .Values.name }}-svc
   labels:
-    app: gosite
+    app: {{ .Values.name }}
 spec:
   ports:
-  - name: http
-    port: 8080
-    nodePort: 30080
+  - name: {{ .Values.SVCPort }}
+    port: {{ .Values.contPort }}
+    nodePort: {{ .Values.nodePort }}
   selector:
-    app: gosite
-  type: NodePort
+    app: {{ .Values.name }}
+  type: {{ .Values.portType }}

@@ -1,16 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: gosite
+  name: {{ .Values.name }}
   labels:
-    app: gosite
+    app: {{ .Values.name }}
   annotations:
-    app: gosite
+    app: {{ .Values.name }}
 spec:
-  replicas: 1
+  replicas: {{ .Values.replicas }}
   selector:
     matchLabels:
-      app: gosite
+      app: {{ .Values.name }}
   strategy:
     rollingUpdate:
       maxSurge: 25%
@@ -18,15 +18,15 @@ spec:
     type: RollingUpdate
   template:
     metadata:
-      name: gosite
+      name: {{ .Values.name }}
       labels:
-        app: gosite
+        app: {{ .Values.name }}
       annotations:
-        app: gosite
+        app: {{ .Values.name }}
     spec:
       containers:
-      - name: gosite
-        image: smarman/gosite:0.0.6
+      - name: {{ .Values.name }}
+        image: smarman/{{ .Values.name }}:0.0.6
         imagePullPolicy: Always
           #livenessProbe:
           #  httpGet:
@@ -35,8 +35,7 @@ spec:
           #  initialDelaySeconds: 5
           #  periodSeconds: 60
         ports:
-        - containerPort: 8080
+        - containerPort: {{ .Values.contPort }}
         stdin: true
         tty: true
-      restartPolicy: Always
-status:
+      restartPolicy: {{ .Values.restartPolicy }}

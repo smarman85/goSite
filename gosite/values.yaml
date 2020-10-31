@@ -1,1 +1,7 @@
 name: gosite
+replicas: 1
+contPort: 8080
+nodePort: 30080
+portType: NodePort
+restartPolicy: Always
+SVCPort: http
