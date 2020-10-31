@@ -1,13 +1,13 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: gosite-ing
+  name: {{ .Values.name }}-ing
 spec:
   rules:
-  - host: gosite.local.seanhome.xyz
+  - host: {{ .Values.name }}.local.seanhome.xyz
     http:
       paths:
       - backend: 
-          serviceName: gosite-svc
-          servicePort: http
+          serviceName: {{ .Values.name }}-svc
+          servicePort: {{ .Values.SVCPort }}
         path: /
