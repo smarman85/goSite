@@ -35,7 +35,7 @@ spec:
           #  initialDelaySeconds: 5
           #  periodSeconds: 60
         ports:
-        - containerPort: {{ .Values.ContainerPort }}
+        - containerPort: {{ .Values.containerPort }}
         stdin: true
         tty: true
       restartPolicy: {{ .Values.restartPolicy }}
