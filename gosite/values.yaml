@@ -1,6 +1,6 @@
 name: gosite
 replicas: 1
-containerPort: 8080
+contPort: 8080
 nodePort: 30080
 portType: NodePort
 restartPolicy: Always

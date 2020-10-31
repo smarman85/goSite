@@ -7,7 +7,7 @@ metadata:
 spec:
   ports:
   - name: {{ .Values.SVCPort }}
-    port: {{ .Values.containerPort }}
+    port: {{ .Values.contPort }}
     nodePort: {{ .Values.nodePort }}
   selector:
     app: {{ .Values.name }}
