@@ -1,0 +1,5 @@
+homelab: 
+  replicas: 1
+
+live: 
+  replicas: 2
