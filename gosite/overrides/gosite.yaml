@@ -1,3 +1,6 @@
+# Defaults
+replicas: 1
+
 homelab: 
   replicas: 1
 
