@@ -1,4 +1,4 @@
-{{ $envValues := index .Values.environments .Values.env }}
+{{ $envValues := index .Values .Values.env }}
 apiVersion: apps/v1
 kind: Deployment
 metadata:

@@ -1,8 +1,8 @@
 # Defaults
-replicas: 1
+replicas: 2
 
 homelab: 
   replicas: 1
 
 live: 
-  replicas: 2
+  replicas: 3
