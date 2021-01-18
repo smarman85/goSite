@@ -7,6 +7,8 @@ import (
   "net/http"
   "html/template"
   "github.com/gorilla/mux"
+
+  "goSite/pkg/posts"
 )
 
 var tpl *template.Template
@@ -55,16 +57,7 @@ func about(res http.ResponseWriter, req *http.Request) {
 }
 
 func projects(res http.ResponseWriter, req *http.Request) {
-  projects := map[string][]string{
-    "test": []string{"test header", "quick desc"},
-    "test1": []string{"test1 header", "quick desc 1"},
-    "test2": []string{"test2 header", "quick desc 2"},
-    "test3": []string{"test3 header", "quick desc 3"},
-    "test4": []string{"test4 header", "quick desc 4"},
-    "test5": []string{"New Post", "something catchy"},
-    "k8s_svc": []string{"K8s Service Accounts", "Kubernetes Service accounts and how they grant access."},
-    "post1": []string{"Lorem Ipsume", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."},
-  }
+  projects := posts.Projects
   err := tpl.ExecuteTemplate(res, "projects.gohtml", projects)
   if err != nil {
     log.Println("template didn't execute: ", err)
