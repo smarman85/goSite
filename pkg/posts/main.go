@@ -8,6 +8,6 @@ var Projects map[string][]string = map[string][]string{
     "test3": []string{"test3 header", "quick desc 3"},
     "test4": []string{"test4 header", "quick desc 4"},
     "test5": []string{"New Post", "something catchy"},
-    "k8s_svc": []string{"K8s Service Accounts", "Kubernetes Service accounts and how they grant access."},
+    "k8s-svc": []string{"K8s Service Accounts", "Kubernetes Service accounts and how they grant access."},
     "post1": []string{"Lorem Ipsume", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."},
 }
