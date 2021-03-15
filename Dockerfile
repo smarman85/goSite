@@ -3,6 +3,7 @@ FROM smarman/alpine-base AS builder
 ENV GOVERSION 1.13.3
 ENV GOAPP goSite
 ENV GOPATH /go
+ENV USER gosite
 
 RUN apk update && \
     apk add --no-cache \
@@ -10,6 +11,7 @@ RUN apk update && \
         gcc \
         libc-dev \
         dumb-init && \
+    adduser -D ${USER} && \
     wget -O go.tgz https://dl.google.com/go/go${GOVERSION}.linux-amd64.tar.gz && \
     tar -C /usr/local -xzf go.tgz && \
     mkdir /lib64 && ln -s /lib/libc.musl-x86_64.so.1 /lib64/ld-linux-x86-64.so.2 && \
@@ -23,6 +25,7 @@ RUN cd ${GOPATH}/src/${GOAPP} && /usr/local/go/bin/go build -o $GOAPP
 #RUN cd ${GOPATH}/src/${GOAPP} && env GOOS=linux GOARCH=arm GOARM=5 /usr/local/go/bin/go build -o $GOAPP
 #RUN echo "HELLO" && ls -al /${GOPATH}/src/${GOAPP}/
 
+USER ${USER}
 WORKDIR /${GOPATH}/src/${GOAPP}/
 ENTRYPOINT ["/usr/bin/dumb-init", "--", "./goSite"]
 
