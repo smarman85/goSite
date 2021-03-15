@@ -3,10 +3,9 @@
 package main
 
 import (
-  "goSite/pkg/server"
+	"goSite/pkg/server"
 )
 
-
 func main() {
-  server.StartApp()
+	server.StartApp()
 }
