@@ -27,7 +27,8 @@ RUN cd ${GOPATH}/src/${GOAPP} && /usr/local/go/bin/go build -o $GOAPP
 
 USER ${USER}
 WORKDIR /${GOPATH}/src/${GOAPP}/
-ENTRYPOINT ["/usr/bin/dumb-init", "--", "./goSite"]
+#ENTRYPOINT ["/usr/bin/dumb-init", "--", "./goSite"]
+ENTRYPOINT ["./init/app"]
 
 
 

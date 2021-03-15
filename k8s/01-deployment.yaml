@@ -29,6 +29,7 @@ spec:
       containers:
       - name: gosite
         image: smarman/gosite:0.0.6
+        command: ['./init/app']
         imagePullPolicy: Always
           #livenessProbe:
           #  httpGet:
