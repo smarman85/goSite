@@ -9,6 +9,8 @@ import (
 	"log"
 	"net/http"
   "encoding/json"
+  "math/rand"
+  "strconv"
 
 	"goSite/pkg/posts"
 	"goSite/pkg/jokes"
@@ -36,7 +38,8 @@ func StartApp() {
 	router.HandleFunc("/projects", projects)
 	router.HandleFunc("/projects/{project}", project)
 	router.HandleFunc("/resume", resume)
-  router.HandleFunc("/api/joke/{id}", joke)
+  router.HandleFunc("/api/joke/{id}", jokeByID)
+  router.HandleFunc("/api/joke", joke)
 	router.NotFoundHandler = http.HandlerFunc(NotFound)
 
 	http.ListenAndServe(":8080", router)
@@ -92,7 +95,7 @@ func resume(res http.ResponseWriter, req *http.Request) {
 	}
 }
 
-func joke(res http.ResponseWriter, req *http.Request) {
+func jokeByID(res http.ResponseWriter, req *http.Request) {
         vars := mux.Vars(req)
         id := vars["id"]
 
@@ -102,4 +105,14 @@ func joke(res http.ResponseWriter, req *http.Request) {
         jm, _ := json.Marshal(j)
         fmt.Fprintf(res, string(jm))
         //fmt.Fprintf(res, fmt.Sprintf("joke: %v", jokes.Jokes[id]))
+}
+
+func joke(res http.ResponseWriter, req *http.Request) {
+        jokeID := strconv.Itoa(rand.Intn(len(jokes.Jokes)-1) + 1)
+
+        j := &joke1 {
+                Joke: jokes.Jokes[jokeID],
+        }
+        jm, _ := json.Marshal(j)
+        fmt.Fprintf(res, string(jm))
 }
