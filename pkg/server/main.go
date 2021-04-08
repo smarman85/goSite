@@ -3,14 +3,20 @@ package server
 // ref https://www.alexedwards.net/blog/serving-static-sites-with-go
 // https://stackoverflow.com/questions/55996263/how-to-serve-static-files-for-all-pages-not-just-a-few
 import (
-	//"fmt"
+	"fmt"
 	"github.com/gorilla/mux"
 	"html/template"
 	"log"
 	"net/http"
+  "encoding/json"
 
 	"goSite/pkg/posts"
+	"goSite/pkg/jokes"
 )
+
+type joke1 struct {
+        Joke string `json:"joke"`
+}
 
 var tpl *template.Template
 
@@ -30,6 +36,7 @@ func StartApp() {
 	router.HandleFunc("/projects", projects)
 	router.HandleFunc("/projects/{project}", project)
 	router.HandleFunc("/resume", resume)
+  router.HandleFunc("/api/joke/{id}", joke)
 	router.NotFoundHandler = http.HandlerFunc(NotFound)
 
 	http.ListenAndServe(":8080", router)
@@ -83,4 +90,16 @@ func resume(res http.ResponseWriter, req *http.Request) {
 		log.Println("template didn't execute: ", err)
 		NotFound(res, req)
 	}
+}
+
+func joke(res http.ResponseWriter, req *http.Request) {
+        vars := mux.Vars(req)
+        id := vars["id"]
+
+        j := &joke1 {
+                Joke: jokes.Jokes[id],
+        }
+        jm, _ := json.Marshal(j)
+        fmt.Fprintf(res, string(jm))
+        //fmt.Fprintf(res, fmt.Sprintf("joke: %v", jokes.Jokes[id]))
 }
