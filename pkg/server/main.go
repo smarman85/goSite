@@ -108,7 +108,7 @@ func jokeByID(res http.ResponseWriter, req *http.Request) {
 }
 
 func joke(res http.ResponseWriter, req *http.Request) {
-        jokeID := strconv.Itoa(rand.Intn(len(jokes.Jokes)-1) + 1)
+        jokeID := strconv.Itoa(rand.Intn(len(jokes.Jokes)))
 
         j := &joke1 {
                 Joke: jokes.Jokes[jokeID],

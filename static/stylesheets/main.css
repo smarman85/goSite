@@ -230,6 +230,14 @@ code pre {
   color: #aed419;
 }
 
+.content-block code .p {
+  color: #8586ab;
+}
+
+.content-block code .o {
+  color: #f48523;
+}
+
 @media only screen and (max-device-width: 1020px), screen and (max-width: 1020px) {
 
   header .hamburger {

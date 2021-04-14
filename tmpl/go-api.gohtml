@@ -1,8 +1,71 @@
 {{ template "header" }}
 <div class="content-block">
   <h1>Simple API in Golang</h1>
+
     <p class="content">
-      Building a simple API using <a href="https://github.com/gorilla/mux">gorilla/mux</a>.
+     <a href="https://github.com/gorilla/mux">gorilla/mux</a> A powerful HTTP router and URL matcher for building Go web servers with. 
     </p>
+    <p class="content">
+      Let's jump straight into the code and we'll break it down a little later. To make sure we are both on the same page, we will be using the following block to explain
+      what's going on and spin up a simple go api implimenting a ping endpoint. 
+    </p>
+    {{ template "codeblock-start" }}
+      <span class="p">package</span> main
+
+      <span class="p">import</span> (
+        <span class="c">"encoding/json"</span>
+        <span class="c">"github.com/gorilla/mux"</span>
+        <span class="c">"net/http"</span>
+      )  
+
+      <span class="o">type</span> Response <span class="o">struct</span> {
+        Status  <span class="p">int</span>    <span class="c">`json:"status"`</span>
+        Message <span class="p">string</span> <span class="c">`json:"message"`</span>
+      }
+
+      <span class="o">func</span> ping(res http.ResponseWriter, req *http.Request) {
+        res.Header().Set(<span class="c">"Content-Type"</span>, <span class="c">"application/json"</span>)
+        r := &Response{
+          Status:  <span class="o">200</span>,
+          Message: <span class="c">"pong"</span>,
+        }
+        json.NewEncoder(res).Encode(r)
+      }
+
+      <span class="o">func</span> main() {
+        router := mux.NewRouter()
+        router.HandleFunc(<span class="c">"/ping"</span>, ping)
+        http.ListenAndServe(<span class="c">":5000"</span>, router)
+      }
+    {{ template "codeblock-end" }}
+    
+    <p class="content">
+      Cool, now we have a simple go api using gorilla/mux that we can ping on our local machine. So what does all this mean? Let's take it from the top. First we need to import a few pacakges.
+      For this small app we will use three, "encoding/json", "net/http" and "github.com/gorilla/mux". "encoding/json" will allow us to encode messages coming out of our endpoints, it will allow us
+      to use our structs as json objects when returning a response.
+
+      "net/http" provides us with an http client and allows us to actually serve content. We will use this package to listen for traffik on our desired port and read the request and response
+      from our endpoint calls. And now for the fun one, "github.com/gorilla/mux", this pacakge takes net/http to the next level. The main features of gorilla/mux are:
+      <ul>
+        <li>
+          It implements the http.Handler interface so it is compatible with the standard http.ServeMux.
+        </li>
+        <li>
+          Requests can be matched based on URL host, path, path prefix, schemes, header and query values, HTTP methods or using custom matchers.
+        </li>
+        <li>
+          URL hosts, paths and query values can have variables with an optional regular expression
+        </li>
+        <li>
+          Registered URLs can be built, or "reversed", which helps maintaining references to resources
+        </li>
+        <li>
+          Routes can be used as subrouters: nested routes are only tested if the parent route matches. This is useful to define groups of routes that share common conditions like a host, a path prefix or other repeated attributes. As a bonus, this optimizes request matching.
+        </li>
+      </ul>
+    </p>
+    <p class="content">
+    </p>
+
 </div>
 {{ template "footer" }}
