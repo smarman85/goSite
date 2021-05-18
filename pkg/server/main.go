@@ -9,10 +9,6 @@ import (
 	"goSite/pkg/handlers"
 )
 
-type joke1 struct {
-        Joke string `json:"joke"`
-}
-
 func StartApp() {
 	router := mux.NewRouter()
 
