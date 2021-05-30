@@ -1,0 +1,105 @@
+{{ define "elements"}}
+<html lang="en">
+<body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="57x57" href="/assets/favicon/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/assets/favicon/apple-touch-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/assets/favicon/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/assets/favicon/apple-touch-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/assets/favicon/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/assets/favicon/apple-touch-icon-120x120.png">
+  <link rel="icon" type="image/png" href="/assets/favicon/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/assets/favicon/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/png" href="/assets/favicon/favicon-16x16.png" sizes="16x16">
+  <link rel="manifest" href="/assets/favicon/manifest.json">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <link rel='icon' href='/static/assets/favicon.ico' type='image/x-icon'/ >
+  <link rel='icon' href='/static/assets/favicon.ico' type='image/x-icon'/ >
+  <title>Sean Marman</title>
+  <link rel="stylesheet" type="text/css" href="/static/stylesheets/main.css">
+  <script src="/static/js/script.js"></script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <img class="me" src="https://avatars3.githubusercontent.com/u/4985101?v=3&amps=460" alt="">
+      <span class="hamburger" onclick="toggle()">&#9776;</span>
+      <ul class="links">
+        <a href="/">
+          <li>Home</li>
+        </a>
+        <a href="/about">
+          <li>About Me</li>
+        </a>
+        <a href="/projects">
+          <li>Projects</li>
+        </a>
+        <!-- <a href="/resume"><li>Resume</li></a> -->
+      </ul>
+      <ul id="mobile-menu" style="display: none;">
+        <a onclick="toggle()" href="/"><li>Home</li></a>
+        <a onclick="toggle()" href="/about"><li>About Me</li></a>
+        <a onclick="toggle()" href="/projects"><li>Projects</li></a>
+        <!-- <a onclick="toggle()" href="/resume"><li>Resume</li></a> -->
+      </ul>
+    </header>
+      <img class="background-image" src="/images/san-franc.jpg" alt="Golden Gate Bridge"> 
+    <div class="content-block">
+      {{if .Alert}}
+        <h1>{{.Alert}}</h1>
+      {{end}}
+      {{template "yield"}}
+    </div>
+    <footer>
+      <div class="social-links">
+        <a href="https://www.linkedin.com/in/seanmarman"><img src="/images/linkedin.png" alt=""></a>
+        <a href="https://twitter.com/smarman85"><img src="/images/twitter.png" alt=""></a>
+        <a href="https://github.com/smarman85"><img src="/images/github.png" alt=""></a>
+      </div>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    </footer>
+  </div>
+</body>
+</html>
+{{ end }}
+
+
+{{ define "codeblock-start" }}
+<code>
+  <div class="codebar">
+    <ul class="stoplight">
+      <li class="red"></li>
+      <li class="yellow"></li>
+      <li class="green"></li>
+    </ul>
+  </div>
+  <pre>
+    <div class="code_content">
+{{ end }}
+{{ define "codeblock-end" }}
+    </div>
+  </pre>
+</code>
+{{ end }}
+
+
+{{ define "test" }}
+<h1>Hi I am test number 0</h1>
+{{ end }}
+{{ define "test1" }}
+<h1>Hi I am test number 1</h1>
+{{ end }}
+
+{{ define "home" }}
+Hi, Im Sean. I am an infrastructure engineer working primarily in the fintech space. 
+This site is a little about me and a lot about the lessons I have learned along the way.
+{{ end }}
+
+{{ define "about" }}
+I began my career in tech almost a decade ago. Before that, I dabbled a little with frontend HTML by reskinning things like my mySpace page (yep, it was a real long time ago). I didn't get real serious with tech until after college. After a string of some post college jobs, a friend challenged me to get more serious with writing code and developing my coding skills. My first internship, allowed me to really explore the tech space, and that's where I got hooked on DevOps/infrastructure. While I still love to code, I find most of my time now is spent solving new and interesting challenges in the space between development and deployment.  
+{{ end }}
+

@@ -1,0 +1,13 @@
+{{ template "header" }}
+{{ if (eq .project "test") }}
+{{ template "test" }}
+{{ else if (eq .project "test1") }}
+{{ template "test1" }}
+{{ else if (eq .project "post1") }}
+{{ template "post1" }}
+{{ else if (eq .project "k8s_svc") }}
+{{ template "k8s_svc" }}
+{{ else }}
+<p>{{ .project }} isn't a project I have worked on. You have reached this page in error</p>
+{{ end }}
+{{ template "footer" }}

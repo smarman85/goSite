@@ -7,7 +7,9 @@ import (
 
   "goSite/pkg/handlers"
   "goSite/controllers"
+  //"goSite/rand"
 
+  //"github.com/gorilla/csrf"
   "github.com/gorilla/mux"
 )
 
@@ -15,10 +17,19 @@ func main() {
   router := mux.NewRouter()
   staticC := controllers.NewStatic()
 
+
+  /*
+  b, err := rand.Bytes(32)
+  if err != nil {
+    panic(err)
+  }
+  csrfMw := csrf.Protect(b, csrf.Secure(false))
+  */
+
   //router.PathPrefix("/static/").Handler(http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
   //router.PathPrefix("/images/").Handler(http.StripPrefix("/images/", http.FileServer(http.Dir("images"))))
   router.Handle("/", staticC.Home).Methods("GET")
-  router.HandleFunc("/about", handlers.About)
+  router.Handle("/about", staticC.About).Methods("GET")
   router.HandleFunc("/projects", handlers.Projects)
   router.HandleFunc("/projects/{project}", handlers.Project)
   router.HandleFunc("/resume", handlers.Resume)
