@@ -24,74 +24,59 @@ func init() {
   tpl = template.Must(template.ParseGlob("tmpl/*.gohtml"))
 }
 
-func NotFound(res http.ResponseWriter, req *http.Request) { // a * before http.Request
-        err := tpl.ExecuteTemplate(res, "404.gohtml", nil)
+func NotFound(w http.ResponseWriter, r *http.Request) { // a * before http.Request
+        err := tpl.ExecuteTemplate(w, "404.gohtml", nil)
         if err != nil {
                 log.Fatalln("template didn't execute: ", err)
         }
 }
 
-func Index(res http.ResponseWriter, req *http.Request) {
-        err := tpl.ExecuteTemplate(res, "index.gohtml", nil)
-        if err != nil {
-                log.Fatalln("template didn't execute: ", err)
-        }
-}
-
-func About(res http.ResponseWriter, req *http.Request) {
-        err := tpl.ExecuteTemplate(res, "about.gohtml", nil)
-        if err != nil {
-                log.Println("template didn't execute: ", err)
-                NotFound(res, req)
-        }
-}
-
-func Projects(res http.ResponseWriter, req *http.Request) {
+func Projects(w http.ResponseWriter, r *http.Request) {
         projects := posts.Projects
-        err := tpl.ExecuteTemplate(res, "projects.gohtml", projects)
+        err := tpl.ExecuteTemplate(w, "projects.gohtml", projects)
         if err != nil {
                 log.Println("template didn't execute: ", err)
-                NotFound(res, req)
+                NotFound(w, r)
         }
 }
 
-func Project(res http.ResponseWriter, req *http.Request) {
-        params := mux.Vars(req)
+func Project(w http.ResponseWriter, r *http.Request) {
+        params := mux.Vars(r)
         //id := params["project"]
-        err := tpl.ExecuteTemplate(res, params["project"]+".gohtml", nil)
+        err := tpl.ExecuteTemplate(w, params["project"]+".gohtml", nil)
         if err != nil {
                 log.Println("template didn't execute: ", err)
-                NotFound(res, req)
+                NotFound(w, r)
                 //tpl.ExecuteTemplate(res, "404.gohtml", nil)
         }
 }
 
-func Resume(res http.ResponseWriter, req *http.Request) {
-        err := tpl.ExecuteTemplate(res, "resume.gohtml", nil)
+func Resume(w http.ResponseWriter, r *http.Request) {
+        err := tpl.ExecuteTemplate(w, "resume.gohtml", nil)
         if err != nil {
                 log.Println("template didn't execute: ", err)
-                NotFound(res, req)
+                NotFound(w, r)
         }
 }
 
-func JokeByID(res http.ResponseWriter, req *http.Request) {
-        vars := mux.Vars(req)
+func JokeByID(w http.ResponseWriter, r *http.Request) {
+        vars := mux.Vars(r)
         id := vars["id"]
 
         j := &joke1 {
                 Joke: jokes.Jokes[id],
         }
         jm, _ := json.Marshal(j)
-        fmt.Fprintf(res, string(jm))
+        fmt.Fprintf(w, string(jm))
         //fmt.Fprintf(res, fmt.Sprintf("joke: %v", jokes.Jokes[id]))
 }
 
-func Joke(res http.ResponseWriter, req *http.Request) {
+func Joke(w http.ResponseWriter, r *http.Request) {
         jokeID := strconv.Itoa(rand.Intn(len(jokes.Jokes)))
 
         j := &joke1 {
                 Joke: jokes.Jokes[jokeID],
         }
         jm, _ := json.Marshal(j)
-        fmt.Fprintf(res, string(jm))
+        fmt.Fprintf(w, string(jm))
 }

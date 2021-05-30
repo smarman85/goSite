@@ -14,28 +14,25 @@ import (
 )
 
 func main() {
-  router := mux.NewRouter()
+  r := mux.NewRouter()
   staticC := controllers.NewStatic()
+  //postsC := controllers.NewPosts()
 
-
-  /*
-  b, err := rand.Bytes(32)
-  if err != nil {
-    panic(err)
-  }
-  csrfMw := csrf.Protect(b, csrf.Secure(false))
-  */
 
   //router.PathPrefix("/static/").Handler(http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
   //router.PathPrefix("/images/").Handler(http.StripPrefix("/images/", http.FileServer(http.Dir("images"))))
-  router.Handle("/", staticC.Home).Methods("GET")
-  router.Handle("/about", staticC.About).Methods("GET")
-  router.HandleFunc("/projects", handlers.Projects)
-  router.HandleFunc("/projects/{project}", handlers.Project)
-  router.HandleFunc("/resume", handlers.Resume)
-  router.HandleFunc("/api/joke/{id}", handlers.JokeByID)
-  router.HandleFunc("/api/joke", handlers.Joke)
-  router.NotFoundHandler = http.HandlerFunc(handlers.NotFound)
+  // static pages
+  r.Handle("/", staticC.Home).Methods("GET")
+  r.Handle("/about", staticC.About).Methods("GET")
 
-  http.ListenAndServe(":8088", router)
+  // posts routes
+  r.HandleFunc("/projects", handlers.Projects)
+  //r.HandleFunc("/projects", postsC.Index)
+  r.HandleFunc("/projects/{project}", handlers.Project)
+  r.HandleFunc("/resume", handlers.Resume)
+  r.HandleFunc("/api/joke/{id}", handlers.JokeByID)
+  r.HandleFunc("/api/joke", handlers.Joke)
+  r.NotFoundHandler = http.HandlerFunc(handlers.NotFound)
+
+  http.ListenAndServe(":8088", r)
 }
