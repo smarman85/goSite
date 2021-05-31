@@ -16,7 +16,7 @@ import (
 func main() {
   r := mux.NewRouter()
   staticC := controllers.NewStatic()
-  //postsC := controllers.NewPosts()
+  postsC := controllers.NewPosts(r)
 
 
   //router.PathPrefix("/static/").Handler(http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
@@ -24,15 +24,19 @@ func main() {
   // static pages
   r.Handle("/", staticC.Home).Methods("GET")
   r.Handle("/about", staticC.About).Methods("GET")
+  //r.Handle("/resume", staticC.Resume)
 
   // posts routes
-  r.HandleFunc("/projects", handlers.Projects)
-  //r.HandleFunc("/projects", postsC.Index)
+  //r.HandleFunc("/projects", handlers.Projects)
+  r.HandleFunc("/projects", postsC.ShowAll).Methods("GET")
   r.HandleFunc("/projects/{project}", handlers.Project)
-  r.HandleFunc("/resume", handlers.Resume)
   r.HandleFunc("/api/joke/{id}", handlers.JokeByID)
   r.HandleFunc("/api/joke", handlers.Joke)
   r.NotFoundHandler = http.HandlerFunc(handlers.NotFound)
+
+  assetHandler := http.FileServer(http.Dir("./assets/"))
+  assetHandler = http.StripPrefix("/assets/", assetHandler)
+  r.PathPrefix("/assets/").Handler(assetHandler)
 
   http.ListenAndServe(":8088", r)
 }

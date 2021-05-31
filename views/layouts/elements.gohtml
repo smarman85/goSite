@@ -17,11 +17,11 @@
   <link rel="manifest" href="/assets/favicon/manifest.json">
   <meta name="msapplication-TileColor" content="#da532c">
   <meta name="theme-color" content="#ffffff">
-  <link rel='icon' href='/static/assets/favicon.ico' type='image/x-icon'/ >
-  <link rel='icon' href='/static/assets/favicon.ico' type='image/x-icon'/ >
+  <link rel='icon' href='/assets/favicon.ico' type='image/x-icon'/ >
+  <link rel='icon' href='/assets/favicon.ico' type='image/x-icon'/ >
   <title>Sean Marman</title>
-  <link rel="stylesheet" type="text/css" href="/static/stylesheets/main.css">
-  <script src="/static/js/script.js"></script>
+  <link rel="stylesheet" type="text/css" href="/assets/stylesheets/main.css">
+  <script src="/assets/js/script.js"></script>
 </head>
 <body>
   <div class="container">
@@ -47,12 +47,12 @@
         <!-- <a onclick="toggle()" href="/resume"><li>Resume</li></a> -->
       </ul>
     </header>
-      <img class="background-image" src="/images/san-franc.jpg" alt="Golden Gate Bridge"> 
+      <img class="background-image" src="/assets/images/san-franc.jpg" alt="Golden Gate Bridge"> 
     <div class="content-block">
       {{if .Alert}}
         <h1>{{.Alert}}</h1>
       {{end}}
-      {{template "yield"}}
+      {{template "yield" .}}
     </div>
     <footer>
       <div class="social-links">
