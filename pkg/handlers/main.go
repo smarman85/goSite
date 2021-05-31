@@ -10,7 +10,6 @@ import (
   "fmt"
   "net/http"
 
-  "goSite/pkg/posts"
   "goSite/pkg/jokes"
 )
 
@@ -28,15 +27,6 @@ func NotFound(w http.ResponseWriter, r *http.Request) { // a * before http.Reque
         err := tpl.ExecuteTemplate(w, "404.gohtml", nil)
         if err != nil {
                 log.Fatalln("template didn't execute: ", err)
-        }
-}
-
-func Projects(w http.ResponseWriter, r *http.Request) {
-        projects := posts.Projects
-        err := tpl.ExecuteTemplate(w, "projects.gohtml", projects)
-        if err != nil {
-                log.Println("template didn't execute: ", err)
-                NotFound(w, r)
         }
 }
 

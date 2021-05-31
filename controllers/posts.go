@@ -1,10 +1,11 @@
 package controllers
 
 import(
+  "fmt"
   "net/http"
 
   "goSite/views"
-  "goSite/pkg/posts"
+  "goSite/models"
 
   "github.com/gorilla/mux"
 )
@@ -23,9 +24,16 @@ type Posts struct {
 }
 
 func (p *Posts) ShowAll(w http.ResponseWriter, r *http.Request) {
-  //publishedPosts := posts.Projects
-  var vd views.Data
-  vd.Yield = posts.Projects
+  vd := models.PublishedPosts()
   p.ShowView.Render(w, r, vd)
 }
 
+
+func (p *Posts) Project(w http.ResponseWriter, r *http.Request) {
+  vars := mux.Vars(r)
+  projectName := vars["post"]
+  postView := views.NewView(
+    "elements", fmt.Sprintf("posts/%s", projectName),
+  )
+  postView.Render(w, r, postView)
+}

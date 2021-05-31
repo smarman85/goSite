@@ -1,6 +1,12 @@
 package models
 
-type AllPosts struct {
-  Alert *Alert
-  Yield interface{}
+import (
+  "goSite/views"
+  "goSite/pkg/posts"
+)
+
+func PublishedPosts() views.Data {
+  var vd views.Data
+  vd.Yield = posts.Projects
+  return vd
 }

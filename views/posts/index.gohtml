@@ -2,7 +2,7 @@
 <h1>Posts + Projects</h1>
 <div class="tile_container">
 {{range $key, $value := .Yield}}
-  <a href="/projects/{{ $key }}">
+  <a href="/posts/{{ $key }}">
     <div class="projects-tile">
       <h1>{{ index $value 0 }}</h1>
       <img src="http://www.fillmurray.com/300/200" alt="">

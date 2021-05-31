@@ -19,8 +19,6 @@ func main() {
   postsC := controllers.NewPosts(r)
 
 
-  //router.PathPrefix("/static/").Handler(http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
-  //router.PathPrefix("/images/").Handler(http.StripPrefix("/images/", http.FileServer(http.Dir("images"))))
   // static pages
   r.Handle("/", staticC.Home).Methods("GET")
   r.Handle("/about", staticC.About).Methods("GET")
@@ -28,12 +26,20 @@ func main() {
 
   // posts routes
   //r.HandleFunc("/projects", handlers.Projects)
-  r.HandleFunc("/projects", postsC.ShowAll).Methods("GET")
-  r.HandleFunc("/projects/{project}", handlers.Project)
+  //r.HandleFunc("/projects/{project}", handlers.Project)
+  r.HandleFunc("/posts", postsC.ShowAll).Methods("GET")
+  r.HandleFunc("/posts/{post}", postsC.Project).Methods("GET")
+
+  //Api routes
   r.HandleFunc("/api/joke/{id}", handlers.JokeByID)
   r.HandleFunc("/api/joke", handlers.Joke)
   r.NotFoundHandler = http.HandlerFunc(handlers.NotFound)
 
+  // Image handler
+  imageHandler := http.FileServer(http.Dir("./images/"))
+  r.PathPrefix("/images/").Handler(http.StripPrefix("/images/", imageHandler))
+
+  // Assets 
   assetHandler := http.FileServer(http.Dir("./assets/"))
   assetHandler = http.StripPrefix("/assets/", assetHandler)
   r.PathPrefix("/assets/").Handler(assetHandler)
