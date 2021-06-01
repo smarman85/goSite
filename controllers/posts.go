@@ -33,11 +33,11 @@ func (p *Posts) Project(w http.ResponseWriter, r *http.Request) {
   vars := mux.Vars(r)
   projectName := vars["post"]
 
-  //err := models.PostExists(fmt.Sprintf("posts/%s.gohtml", projectName))
-  //if err != nil {
-  //  http.Redirect(w, r, "/404", http.StatusNotFound)
-  //  return
-  //}
+  err := models.PostExists(fmt.Sprintf("posts/%s.gohtml", projectName))
+  if err != nil {
+    http.Redirect(w, r, "/", http.StatusTemporaryRedirect)
+    return
+  }
 
   postView := views.NewView(
     "elements", fmt.Sprintf("posts/%s", projectName),

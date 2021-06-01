@@ -1,7 +1,6 @@
 package models
 
 import (
-  "os"
   "errors"
 
   "goSite/views"
@@ -15,9 +14,9 @@ func PublishedPosts() views.Data {
 }
 
 func PostExists(fileName string) error {
-  _, err := os.Stat(fileName)
-  if os.IsNotExist(err) {
-    return errors.New("the post doesn't exist")
+  published := posts.Projects
+  if _, ok := published[fileName]; ok {
+    return errors.New("post not found")
   }
   return nil
 }
