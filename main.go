@@ -33,7 +33,6 @@ func main() {
   //Api routes
   r.HandleFunc("/api/joke/{id}", handlers.JokeByID)
   r.HandleFunc("/api/joke", handlers.Joke)
-  r.NotFoundHandler = http.HandlerFunc(handlers.NotFound)
 
   // Image handler
   imageHandler := http.FileServer(http.Dir("./images/"))
@@ -44,5 +43,6 @@ func main() {
   assetHandler = http.StripPrefix("/assets/", assetHandler)
   r.PathPrefix("/assets/").Handler(assetHandler)
 
+  r.NotFoundHandler = http.HandlerFunc(handlers.NotFound)
   http.ListenAndServe(":8088", r)
 }
