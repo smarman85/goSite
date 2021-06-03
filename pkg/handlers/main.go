@@ -30,25 +30,6 @@ func NotFound(w http.ResponseWriter, r *http.Request) { // a * before http.Reque
         }
 }
 
-func Project(w http.ResponseWriter, r *http.Request) {
-        params := mux.Vars(r)
-        //id := params["project"]
-        err := tpl.ExecuteTemplate(w, params["project"]+".gohtml", nil)
-        if err != nil {
-                log.Println("template didn't execute: ", err)
-                NotFound(w, r)
-                //tpl.ExecuteTemplate(res, "404.gohtml", nil)
-        }
-}
-
-func Resume(w http.ResponseWriter, r *http.Request) {
-        err := tpl.ExecuteTemplate(w, "resume.gohtml", nil)
-        if err != nil {
-                log.Println("template didn't execute: ", err)
-                NotFound(w, r)
-        }
-}
-
 func JokeByID(w http.ResponseWriter, r *http.Request) {
         vars := mux.Vars(r)
         id := vars["id"]

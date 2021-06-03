@@ -32,15 +32,17 @@ func (p *Posts) ShowAll(w http.ResponseWriter, r *http.Request) {
 func (p *Posts) Project(w http.ResponseWriter, r *http.Request) {
   vars := mux.Vars(r)
   projectName := vars["post"]
+  pageContent := ""
 
-  err := models.PostExists(fmt.Sprintf("posts/%s.gohtml", projectName))
+  err := models.PostExists(projectName)
   if err != nil {
-    http.Redirect(w, r, "/", http.StatusTemporaryRedirect)
-    return
+    //http.Redirect(w, r, "/posts", http.StatusTemporaryRedirect)
+    pageContent = "static/404"
+  } else {
+    pageContent = fmt.Sprintf("posts/%s", projectName)
   }
-
   postView := views.NewView(
-    "elements", fmt.Sprintf("posts/%s", projectName),
+    "elements", pageContent,
   )
   postView.Render(w, r, postView)
 }

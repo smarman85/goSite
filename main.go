@@ -43,6 +43,6 @@ func main() {
   assetHandler = http.StripPrefix("/assets/", assetHandler)
   r.PathPrefix("/assets/").Handler(assetHandler)
 
-  r.NotFoundHandler = http.HandlerFunc(handlers.NotFound)
+  r.NotFoundHandler = staticC.NotFound
   http.ListenAndServe(":8088", r)
 }

@@ -16,7 +16,7 @@ func PublishedPosts() views.Data {
 func PostExists(fileName string) error {
   published := posts.Projects
   if _, ok := published[fileName]; ok {
-    return errors.New("post not found")
+    return nil
   }
-  return nil
+  return errors.New("Post not found")
 }
