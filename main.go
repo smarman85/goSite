@@ -5,7 +5,6 @@ package main
 import (
   "net/http"
 
-  "goSite/pkg/handlers"
   "goSite/controllers"
   //"goSite/rand"
 
@@ -17,6 +16,7 @@ func main() {
   r := mux.NewRouter()
   staticC := controllers.NewStatic()
   postsC := controllers.NewPosts(r)
+  //apiC := controllers.NewApi(r)
 
 
   // static pages
@@ -25,14 +25,12 @@ func main() {
   //r.Handle("/resume", staticC.Resume)
 
   // posts routes
-  //r.HandleFunc("/projects", handlers.Projects)
-  //r.HandleFunc("/projects/{project}", handlers.Project)
   r.HandleFunc("/posts", postsC.ShowAll).Methods("GET")
   r.HandleFunc("/posts/{post}", postsC.Project).Methods("GET")
 
   //Api routes
-  r.HandleFunc("/api/joke/{id}", handlers.JokeByID)
-  r.HandleFunc("/api/joke", handlers.Joke)
+  //r.HandleFunc("/api/joke/{id}", controllers.Joke)
+  r.HandleFunc("/api/joke", controllers.Random)
 
   // Image handler
   imageHandler := http.FileServer(http.Dir("./images/"))

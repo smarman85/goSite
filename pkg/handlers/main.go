@@ -1,12 +1,10 @@
 package handlers
 
 import (
-  "html/template"
   "github.com/gorilla/mux"
   "encoding/json"
   "math/rand"
   "strconv"
-  "log"
   "fmt"
   "net/http"
 
@@ -15,19 +13,6 @@ import (
 
 type joke1 struct {
         Joke string `json:"joke"`
-}
-
-var tpl *template.Template
-
-func init() {
-  tpl = template.Must(template.ParseGlob("tmpl/*.gohtml"))
-}
-
-func NotFound(w http.ResponseWriter, r *http.Request) { // a * before http.Request
-        err := tpl.ExecuteTemplate(w, "404.gohtml", nil)
-        if err != nil {
-                log.Fatalln("template didn't execute: ", err)
-        }
 }
 
 func JokeByID(w http.ResponseWriter, r *http.Request) {
@@ -39,7 +24,6 @@ func JokeByID(w http.ResponseWriter, r *http.Request) {
         }
         jm, _ := json.Marshal(j)
         fmt.Fprintf(w, string(jm))
-        //fmt.Fprintf(res, fmt.Sprintf("joke: %v", jokes.Jokes[id]))
 }
 
 func Joke(w http.ResponseWriter, r *http.Request) {
