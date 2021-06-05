@@ -29,7 +29,7 @@ func main() {
   r.HandleFunc("/posts/{post}", postsC.Project).Methods("GET")
 
   //Api routes
-  //r.HandleFunc("/api/joke/{id}", controllers.Joke)
+  r.HandleFunc("/api/joke/{id}", controllers.Joke)
   r.HandleFunc("/api/joke", controllers.Random)
 
   // Image handler
