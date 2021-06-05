@@ -42,5 +42,5 @@ func main() {
   r.PathPrefix("/assets/").Handler(assetHandler)
 
   r.NotFoundHandler = staticC.NotFound
-  http.ListenAndServe(":8088", r)
+  http.ListenAndServe(":8080", r)
 }
