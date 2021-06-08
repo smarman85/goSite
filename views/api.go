@@ -1,10 +1,10 @@
 package views
 
 import (
-  "fmt"
-  "net/http"
+	"fmt"
+	"net/http"
 )
 
 func ApiRender(w http.ResponseWriter, payload []byte) {
-  fmt.Fprintf(w, string(payload))
+	fmt.Fprintf(w, string(payload))
 }

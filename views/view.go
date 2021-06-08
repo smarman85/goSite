@@ -1,10 +1,10 @@
 package views
 
 import (
-  "io"
-  "fmt"
-  "bytes"
+	"bytes"
+	"fmt"
 	"html/template"
+	"io"
 	"net/http"
 	"path/filepath"
 )
@@ -36,23 +36,23 @@ type View struct {
 
 func (v *View) Render(w http.ResponseWriter, r *http.Request, data interface{}) {
 	w.Header().Set("Content-Type", "text/html")
-  var vd Data
-  switch d := data.(type) {
-  case Data:
-    vd = d
-  default:
-    vd = Data{
-      Yield: data,
-    }
-  }
-  var buf bytes.Buffer
-  err := v.Template.ExecuteTemplate(&buf, v.Layout, vd)
-  if err != nil {
-    http.Error(w, "Something is wrong", http.StatusInternalServerError)
-    fmt.Println(err)
-    return
-  }
-  io.Copy(w, &buf)
+	var vd Data
+	switch d := data.(type) {
+	case Data:
+		vd = d
+	default:
+		vd = Data{
+			Yield: data,
+		}
+	}
+	var buf bytes.Buffer
+	err := v.Template.ExecuteTemplate(&buf, v.Layout, vd)
+	if err != nil {
+		http.Error(w, "Something is wrong", http.StatusInternalServerError)
+		fmt.Println(err)
+		return
+	}
+	io.Copy(w, &buf)
 }
 
 func (v *View) ServeHTTP(w http.ResponseWriter, r *http.Request) {
@@ -86,5 +86,3 @@ func addTemplateExt(files []string) {
 		files[i] = f + TemplateExt
 	}
 }
-
-

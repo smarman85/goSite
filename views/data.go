@@ -4,7 +4,6 @@ import (
 	"log"
 	"net/http"
 	"time"
-
 	//"goSite/models"
 )
 
@@ -124,4 +123,3 @@ func getAlert(r *http.Request) *Alert {
 	}
 	return &alert
 }
-

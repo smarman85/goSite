@@ -45,4 +45,3 @@ func NBytes(base64String string) (int, error) {
 	}
 	return len(b), nil
 }
-
