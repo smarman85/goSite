@@ -1,4 +1,4 @@
-{{ define "header" }}
+{{ define "elements"}}
 <html lang="en">
 <body>
 <!DOCTYPE html>
@@ -17,11 +17,11 @@
   <link rel="manifest" href="/assets/favicon/manifest.json">
   <meta name="msapplication-TileColor" content="#da532c">
   <meta name="theme-color" content="#ffffff">
-  <link rel='icon' href='/static/assets/favicon.ico' type='image/x-icon'/ >
-  <link rel='icon' href='/static/assets/favicon.ico' type='image/x-icon'/ >
+  <link rel='icon' href='/assets/favicon.ico' type='image/x-icon'/ >
+  <link rel='icon' href='/assets/favicon.ico' type='image/x-icon'/ >
   <title>Sean Marman</title>
-  <link rel="stylesheet" type="text/css" href="/static/stylesheets/main.css">
-  <script src="/static/js/script.js"></script>
+  <link rel="stylesheet" type="text/css" href="/assets/stylesheets/main.css">
+  <script src="/assets/js/script.js"></script>
 </head>
 <body>
   <div class="container">
@@ -35,7 +35,7 @@
         <a href="/about">
           <li>About Me</li>
         </a>
-        <a href="/projects">
+        <a href="/posts">
           <li>Projects</li>
         </a>
         <!-- <a href="/resume"><li>Resume</li></a> -->
@@ -43,14 +43,17 @@
       <ul id="mobile-menu" style="display: none;">
         <a onclick="toggle()" href="/"><li>Home</li></a>
         <a onclick="toggle()" href="/about"><li>About Me</li></a>
-        <a onclick="toggle()" href="/projects"><li>Projects</li></a>
+        <a onclick="toggle()" href="/posts"><li>Projects</li></a>
         <!-- <a onclick="toggle()" href="/resume"><li>Resume</li></a> -->
       </ul>
     </header>
-      <img class="background-image" src="/images/san-franc.jpg" alt="Golden Gate Bridge"> 
-{{ end }}
-
-{{ define "footer" }}
+      <img class="background-image" src="/images/hero.jpg" alt="Golden Gate Bridge"> 
+    <div class="content-block">
+      {{if .Alert}}
+        <h1>{{.Alert}}</h1>
+      {{end}}
+      {{template "yield" .}}
+    </div>
     <footer>
       <div class="social-links">
         <a href="https://www.linkedin.com/in/seanmarman"><img src="/images/linkedin.png" alt=""></a>
@@ -83,19 +86,7 @@
 </code>
 {{ end }}
 
-
-{{ define "test" }}
-<h1>Hi I am test number 0</h1>
-{{ end }}
-{{ define "test1" }}
-<h1>Hi I am test number 1</h1>
-{{ end }}
-
 {{ define "home" }}
 Hi, Im Sean. I am an infrastructure engineer working primarily in the fintech space. 
 This site is a little about me and a lot about the lessons I have learned along the way.
-{{ end }}
-
-{{ define "about" }}
-I began my career in tech almost a decade ago. Before that, I dabbled a little with frontend HTML by reskinning things like my mySpace page (yep, it was a real long time ago). I didn't get real serious with tech until after college. After a string of some post college jobs, a friend challenged me to get more serious with writing code and developing my coding skills. My first internship, allowed me to really explore the tech space, and that's where I got hooked on DevOps/infrastructure. While I still love to code, I find most of my time now is spent solving new and interesting challenges in the space between development and deployment.  
 {{ end }}
