@@ -12,7 +12,7 @@ build:
 	docker build -t gositebase .
 
 run:
-	docker run -dith gosite --name gosite -p 8088:8088 -v ${mkfile_dir}:/srv gositebase
+	docker run -dith gosite --name gosite -p 8088:8080 -v ${mkfile_dir}:/srv gositebase
 	sleep 5
 	open http://0.0.0.0:8088
 
