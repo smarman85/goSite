@@ -54,7 +54,8 @@ spec:
     spec:
       containers:
       - name: gosite
-        image: smarman/gosite:0.0.7
+        image: smarman/gosite:0.0.8-arm
+          #command: ["sh", "-c", "tail -f /dev/null"]
         command: ['./init/app']
         imagePullPolicy: Always
           #livenessProbe:
