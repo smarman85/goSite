@@ -1,6 +1,5 @@
-FROM smarman/alpine-base AS builder
+FROM golang:1.16.7-alpine3.14
 
-ENV GOVERSION 1.13.3
 ENV GOAPP goSite
 ENV GOPATH /go
 ENV USER gosite
@@ -12,23 +11,18 @@ RUN apk update && \
         libc-dev \
         dumb-init && \
     adduser -D ${USER} && \
-    wget -O go.tgz https://dl.google.com/go/go${GOVERSION}.linux-amd64.tar.gz && \
-    tar -C /usr/local -xzf go.tgz && \
     mkdir /lib64 && ln -s /lib/libc.musl-x86_64.so.1 /lib64/ld-linux-x86-64.so.2 && \
     mkdir -p ${GOPATH}/src ${GOPATH}/bin
 
 COPY . ${GOPATH}/src/${GOAPP}/
 
-# AMD64
-RUN cd ${GOPATH}/src/${GOAPP} && /usr/local/go/bin/go build -o $GOAPP
-# RASPBERRY PI
-#RUN cd ${GOPATH}/src/${GOAPP} && env GOOS=linux GOARCH=arm GOARM=5 /usr/local/go/bin/go build -o $GOAPP
-#RUN echo "HELLO" && ls -al /${GOPATH}/src/${GOAPP}/
-
+RUN cd ${GOPATH}/src/${GOAPP} && go build -o $GOAPP
+# RUN CGO_ENABLED=1 CC=aarch64-linux-gnu-gcc GOOS=linux GOARCH=arm64 go build -o goSite .
 USER ${USER}
-WORKDIR /${GOPATH}/src/${GOAPP}/
-#ENTRYPOINT ["/usr/bin/dumb-init", "--", "./goSite"]
-ENTRYPOINT ["./init/app"]
+WORKDIR ${GOPATH}/src/${GOAPP}
+# CMD ["tail" "/dev/null"]
+ENTRYPOINT ["/usr/bin/dumb-init", "--", "/go/src/goSite/goSite"]
+#ENTRYPOINT ["./init/app"]
 
 
 
